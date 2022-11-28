@@ -1,5 +1,3 @@
-from random import randint
-
 from chartjs.views.lines import BaseLineChartView
 from django.views.generic import TemplateView
 
@@ -13,30 +11,24 @@ class DadosJSONView(BaseLineChartView):
     # retorna 12 labels para a representação do x
     def get_labels(self):
         labels = [
-            "Janeiro",
-            "Fevereiro",
-            "Março",
-            "Abril",
-            "Maio",
-            "Junho",
-            "Julho",
-            "Agosto",
-            "Setembro",
-            "Outubro",
-            "Novembro",
-            "Dezembro",
+            "2022",
+            "2021",
+            "2020",
+            "2019",
+            "2018",
         ]
         return labels
     
     # retorna os nomes dos datasets (serão cursos do Geek até o momento)
     def get_providers(self):
         datasets = [
-            "Programação para Leigos",
-            "Algoritmos e Lógica de Programação",
-            "Programação em C",
-            "Programação em Java",
-            "Programação em Python",
-            "Banco de Dados"
+            "L. Messi",
+            "Neymar Jr.",
+            "K. Mbappé",
+            "C. Ronaldo",
+            "R. Lewandowski",
+            "K. Benzema",
+            "Gabigol"
         ]
         return datasets
     
@@ -48,38 +40,84 @@ class DadosJSONView(BaseLineChartView):
     # 12 labels, então 12 colunas | 6 datasets, entao 6 linhas
     def get_data(self):
         dados = []
-        for linha in range(6):
-            for coluna in range(12):
-                dado = [
-                    randint(1, 200), # jan
-                    randint(1, 200), # fev
-                    randint(1, 200), # mar
-                    randint(1, 200), # abr
-                    randint(1, 200), # mai
-                    randint(1, 200), # jun
-                    randint(1, 200), # jul
-                    randint(1, 200), # ago
-                    randint(1, 200), # set
-                    randint(1, 200), # out
-                    randint(1, 200), # nov
-                    randint(1, 200)  # dez
-                    
-                    # 20, # jan
-                    # 10, # fev
-                    # 10, # mar
-                    # 10, # abr
-                    # 10, # mai
-                    # 50, # jun
-                    # 40, # jul
-                    # 10, # ago
-                    # 10, # set
-                    # 10, # out
-                    # 10, # nov
-                    # 10  # dez
+        for linha in range(7):
+            for coluna in range(4): # Messi
+                dado1 = [
+                    12, # 2022
+                    11, # 2021
+                    38, # 2020
+                    31, # 2019
+                    51, # 2018
                 ]
-            dados.append(dado)
+        dados.append(dado1)
+        
+        for linha in range(7):
+            for coluna in range(4): # Ney
+                dado2 = [
+                    15, # 2022
+                    13, # 2021
+                    17, # 2020
+                    19, # 2019
+                    23, # 2018
+                ]        
+        dados.append(dado2)
+        
+        for linha in range(7):
+            for coluna in range(4): # Mbappe
+                dado3 = [
+                    19, # 2022
+                    39, # 2021
+                    42, # 2020
+                    30, # 2019
+                    39, # 2018
+                ]        
+        dados.append(dado3)
+        
+        for linha in range(7):
+            for coluna in range(4): # C. ronaldo
+                dado4 = [
+                    3, # 2022
+                    24, # 2021
+                    36, # 2020
+                    37, # 2019
+                    28, # 2018
+                ]        
+        dados.append(dado4)
+        
+        for linha in range(7):
+            for coluna in range(4): # Lewandowski
+                dado5 = [
+                    18, # 2022
+                    50, # 2021
+                    48, # 2020
+                    55, # 2019
+                    40, # 2018
+                ]        
+        dados.append(dado5)
+        
+        for linha in range(7):
+            for coluna in range(4): # Benzema
+                dado6 = [
+                    6, # 2022
+                    44, # 2021
+                    30, # 2020
+                    27, # 2019
+                    30, # 2018
+                ]        
+        dados.append(dado6)
+        
+        for linha in range(7):
+            for coluna in range(4): # Gabigol
+                dado7 = [
+                    29, # 2022
+                    34, # 2021
+                    27, # 2020
+                    43, # 2019
+                    27, # 2018
+                ]        
+        dados.append(dado7)
+        
         return dados
-    
 
 
 # os métodos da class class DadosJSONView como
