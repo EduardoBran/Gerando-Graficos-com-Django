@@ -1,0 +1,47 @@
+{% load static %}
+{% load bootstrap4 %}
+
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Django Charts</title>
+
+    {% bootstrap_css %}
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 class="text-center text-primary mt-5">Django Gráficos!</h1>
+    </div>
+
+    <div class="container">
+        <canvas id="grafico" width="500" height="400"></canvas>
+    </div>
+
+    <!-- arquivos js e jquery bootstrap -->
+    {% bootstrap_javascript jquery='full' %}
+
+    <!-- vem da biblioteca chartjs instalada (esta em apps no settings) -->
+    <script type="text/javascript" src="{% static 'js/Chart.min.js' %}"></script>
+
+    <script type="text/javascript">
+
+        $.get('{% url "dados" %}', function (data) {
+
+            var ctx = $("#grafico").get(0).getContext("2d")
+
+            new Chart(ctx, {
+                type: 'line', data: data
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>
