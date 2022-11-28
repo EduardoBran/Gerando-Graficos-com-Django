@@ -15,7 +15,7 @@
 <body>
 
     <div class="container">
-        <h1 class="text-center text-primary mt-5">Django Gráficos!</h1>
+        <h1 class="text-center text-primary mt-4 mb-4">Django Gráficos!</h1>
     </div>
 
     <div class="container">
@@ -29,6 +29,8 @@
     <script type="text/javascript" src="{% static 'js/Chart.min.js' %}"></script>
 
     <script type="text/javascript">
+
+        // script para buscar os daods na página dados
 
         $.get('{% url "dados" %}', function (data) {
 
